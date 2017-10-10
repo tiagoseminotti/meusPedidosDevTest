@@ -1,0 +1,120 @@
+﻿@model MeusPedidos.DevTest.Models.UserEvaluation
+
+@{
+    ViewBag.Title = "New Evaluation";
+    List<SelectListItem> applicantScores = new List<SelectListItem>()
+            {
+                new SelectListItem {Text="",Value=null, Selected=true },
+                new SelectListItem {Text="0",Value="0" },
+                new SelectListItem {Text="1",Value="1"},
+                new SelectListItem {Text="2",Value="2"},
+                new SelectListItem {Text="3",Value="3" },
+                new SelectListItem {Text="4",Value="4"},
+                new SelectListItem {Text="5",Value="5"},
+                new SelectListItem {Text="6",Value="6" },
+                new SelectListItem {Text="7",Value="7"},
+                new SelectListItem {Text="8",Value="8"},
+                new SelectListItem {Text="9",Value="9" },
+                new SelectListItem {Text="10",Value="10" }
+            };
+
+    ViewBag.ApplicantScores = applicantScores;
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        <hr />
+        <h4>Job Applicant Auto Evaluation</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @if (!string.IsNullOrEmpty(ViewBag.message))
+        {
+            <p>@ViewBag.message</p>
+        }
+        <div class="form-group">
+            @Html.LabelFor(model => model.DS_NAME, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DS_NAME, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DS_NAME, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DS_EMAIL, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DS_EMAIL, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DS_EMAIL)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NR_EVAL_HTML, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.NR_EVAL_HTML, new SelectList(ViewBag.ApplicantScores, "Text", "Value"), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NR_EVAL_HTML)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NR_EVAL_CSS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.NR_EVAL_CSS, new SelectList(ViewBag.ApplicantScores, "Text", "Value"), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NR_EVAL_CSS)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NR_EVAL_JAVASCRIPT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.NR_EVAL_JAVASCRIPT, new SelectList(ViewBag.ApplicantScores, "Text", "Value"), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NR_EVAL_JAVASCRIPT)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NR_EVAL_PYTHON, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.NR_EVAL_PYTHON, new SelectList(ViewBag.ApplicantScores, "Text", "Value"), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NR_EVAL_PYTHON)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NR_EVAL_DJANGO, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.NR_EVAL_DJANGO, new SelectList(ViewBag.ApplicantScores, "Text", "Value"), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NR_EVAL_DJANGO)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NR_EVAL_IOS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.NR_EVAL_IOS, new SelectList(ViewBag.ApplicantScores, "Text", "Value"), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NR_EVAL_IOS)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NR_EVAL_ANDROID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.NR_EVAL_ANDROID, new SelectList(ViewBag.ApplicantScores, "Text", "Value"), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NR_EVAL_ANDROID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
