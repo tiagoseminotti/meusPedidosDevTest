@@ -52,19 +52,19 @@ namespace MeusPedidos.DevTest.WebAPI.BLL
                 if (pFrontEnd)
                 {
                     msg.PlainTextContent = string.Format(msgContent, "Front-End ");
-                    await client.SendEmailAsync(msg);
+                    await client.SendEmailAsync(msg).ConfigureAwait(false);
                 }
                 //Checks and sends back-end programmer e-mail
                 if (pBackEnd)
                 {
                     msg.PlainTextContent = string.Format(msgContent, "Back-End ");
-                    await client.SendEmailAsync(msg);
+                    await client.SendEmailAsync(msg).ConfigureAwait(false);
                 }
                 //Checks and sends mobile programmer e-mail
                 if (pMobile)
                 {
                     msg.PlainTextContent = string.Format(msgContent, "Mobile ");
-                    await client.SendEmailAsync(msg);
+                    await client.SendEmailAsync(msg).ConfigureAwait(false);
                 }
             }
         }
